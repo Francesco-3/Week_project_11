@@ -9,15 +9,17 @@ public class Main {
         CollectionManager manager = new CollectionManager();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("\nGeneri: ACTION, ADVENTURE, RPG, STRATEGY, SPORTS, HORROR, SIMULATION");
+        System.out.println("Piattaforme: PC, PS5, XBOX, NINTENDO, WII\n");
         boolean exit = false;
 
         while (!exit) {
-            System.out.println("\n--- MENU COLLEZIONE GIOCHI ---");
+            System.out.println("Opzioni:");
             System.out.println("1. Aggiungi un gioco");
             System.out.println("2. Ricerca per ID");
             System.out.println("3. Ricerca per prezzo");
             System.out.println("0. Esci");
-            System.out.print("Scegli un'opzione: ");
+            System.out.print("\nScegli un'opzione: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine();

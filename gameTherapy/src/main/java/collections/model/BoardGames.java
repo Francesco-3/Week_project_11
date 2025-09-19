@@ -37,12 +37,12 @@ public class BoardGames extends Game {
     @Override
     public String toString() {
         return "BoardGame{" +
-                "id='" + getId() + '\'' +
-                ", releaseYear=" + getReleaseYear() +
-                ", price=" + getPrice() +
-                ", numberOfPlayers=" + numberOfPlayers +
-                ", averageDurationMinutes=" + averageDurationMinutes +
-                '}';
+                "id = '" + getId() +
+                "', pubblicato il = '" + getReleaseYear() +
+                "', prezzo = '" + getPrice() +
+                "', numero di giocatori = '" + numberOfPlayers +
+                "', durata media = '" + averageDurationMinutes +
+                "min'}";
     }
 
     @Override

@@ -13,12 +13,12 @@ public class CollectionManager {
 
     public void addGame(Game game) {
         if (gameMap.containsKey(game.getId())) {
-            System.out.println("Errore: esiste già un gioco con questo ID!");
+            System.out.println("\nErrore: esiste già un gioco con questo ID!\n");
             return;
         }
 
         gameMap.put(game.getId(), game);
-        System.out.println("Gioco aggiunto con successo: " + game.getId());
+        System.out.println("\nGioco aggiunto con successo: " + game.getId() + "\n");
     }
 
     public void addGameFromInput(Scanner scanner) {
@@ -47,7 +47,7 @@ public class CollectionManager {
                 int hours = scanner.nextInt();
                 scanner.nextLine();
 
-                System.out.print("Inserisci genere (ACTION, ADVENTURE, RPG, STRATEGY, SPORTS, HORROR, SIMULATION): ");
+                System.out.print("Inserisci genere: ");
                 String genreStr = scanner.nextLine().toUpperCase();
                 game = new VideoGames(id, year, price, platform, hours, Genre.valueOf(genreStr));
 
@@ -62,17 +62,17 @@ public class CollectionManager {
                 game = new BoardGames(id, year, price, players, duration);
 
             } else {
-                System.out.print("Scelta non valida!");
+                System.out.println("\nScelta non valida!\n");
                 return;
             }
 
             addGame(game);
 
         } catch (InputMismatchException e) {
-            System.out.println("Errore: input non valido!");
+            System.out.println("\nErrore: input non valido!\n");
             scanner.nextLine();
         } catch (IllegalArgumentException e) {
-            System.out.println("Errore: " + e.getMessage());
+            System.out.println("\nErrore: " + e.getMessage() + "\n");
         }
     }
 
@@ -82,9 +82,9 @@ public class CollectionManager {
 
         Game game = gameMap.get(id);
         if (game != null) {
-            System.out.println("Gioco trovato: " + game);
+            System.out.println("\nGioco trovato: " + game);
         } else {
-            System.out.println("Errore: nessun gioco trovato con questo ID!");
+            System.out.println("\nErrore: nessun gioco trovato con questo ID!\n");
         }
     }
 
@@ -97,14 +97,14 @@ public class CollectionManager {
             List<Game> filteredGames = gameMap.values().stream().filter(game -> game.getPrice() <= maxPrice).collect(Collectors.toList());
 
             if (filteredGames.isEmpty()) {
-                System.out.println("Nessun gioco trovato con prezzo inferiore o uguale a " + maxPrice);
+                System.out.println("\nNessun gioco trovato con prezzo inferiore o uguale a " + maxPrice + "\n");
             } else {
-                System.out.println("Giochi trovati:");
+                System.out.println("\nGiochi trovati:");
                 filteredGames.forEach(System.out::println);
             }
 
         } catch (InputMismatchException e) {
-            System.out.println("Errore: input non valido!");
+            System.out.println("\nErrore: input non valido!");
             scanner.nextLine();
         }
     }

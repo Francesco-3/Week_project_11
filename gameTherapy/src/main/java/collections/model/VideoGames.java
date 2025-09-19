@@ -41,13 +41,13 @@ public class VideoGames extends Game {
     @Override
     public String toString() {
         return "VideoGame{" +
-                "id='" + getId() + '\'' +
-                ", releaseYear=" + getReleaseYear() +
-                ", price=" + getPrice() +
-                ", platform='" + platform + '\'' +
-                ", playTimeHours=" + playTimeHours +
-                ", genre=" + genre +
-                '}';
+                "id = '" + getId() + '\'' +
+                ", anno di produzione = '" + getReleaseYear() +
+                "', prezzo = '" + getPrice() +
+                "', piattaforma = '" + platform +
+                "', tempo di gioco = '" + playTimeHours +
+                "h', genere = '" + genre +
+                "'}";
     }
 
     @Override
