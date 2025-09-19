@@ -9,7 +9,7 @@ public class BoardGames extends Game {
     public BoardGames(String id, int releaseYear, double price, int numberOfPlayers, int averageDurationMinutes) {
         super(id, releaseYear, price);
         if (numberOfPlayers < 2 || numberOfPlayers > 10) {
-            throw new IllegalArgumentException("Number of players must be between 2 and 10");
+            throw new IllegalArgumentException("Il numero di giocatori deve essere tra 2 e 10");
         }
         this.numberOfPlayers = numberOfPlayers;
         this.averageDurationMinutes = averageDurationMinutes;
@@ -21,7 +21,7 @@ public class BoardGames extends Game {
     }
     public void setNumberOfPlayers(int numberOfPlayers) {
         if (numberOfPlayers < 2 || numberOfPlayers > 10) {
-            throw new IllegalArgumentException("Number of players must be between 2 and 10");
+            throw new IllegalArgumentException("Il numero di giocatori deve essere tra 2 e 10");
         }
         this.numberOfPlayers = numberOfPlayers;
     }

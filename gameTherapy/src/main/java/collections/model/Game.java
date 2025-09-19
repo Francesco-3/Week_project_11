@@ -9,7 +9,7 @@ public abstract class Game {
 
     public Game(String id, int releaseYear, double price) {
         if (id == null || id.isBlank()) {
-            throw new IllegalArgumentException("ID cannot be null or empty");
+            throw new IllegalArgumentException("L'ID non può essere vuoto");
         }
         this.id = id;
         this.releaseYear = releaseYear;
