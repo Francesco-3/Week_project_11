@@ -1,36 +1,61 @@
 package collections.model;
 
+import java.util.Objects;
+
 public class BoardGames extends Game {
-    private int gamerNumber;
-    private int durationAverageMinutes;
+    private int numberOfPlayers;
+    private int averageDurationMinutes;
 
-    public BoardGames(String id, int year, double price, int gamerNumber, int durationAverageMinutes) {
-        super(id, year, price);
-        if (gamerNumber < 2 || gamerNumber > 10) {
-            throw new IllegalArgumentException("Numero giocatori deve essere tra 2 e 10");
+    public BoardGames(String id, int releaseYear, double price, int numberOfPlayers, int averageDurationMinutes) {
+        super(id, releaseYear, price);
+        if (numberOfPlayers < 2 || numberOfPlayers > 10) {
+            throw new IllegalArgumentException("Number of players must be between 2 and 10");
         }
-        this.gamerNumber = gamerNumber;
-        this.durationAverageMinutes = durationAverageMinutes;
+        this.numberOfPlayers = numberOfPlayers;
+        this.averageDurationMinutes = averageDurationMinutes;
     }
 
-    public int getGamerNumber() { return gamerNumber; }
-    public void setGamerNumber(int gamerNumber) {
-        if (gamerNumber < 2 || gamerNumber > 10) {
-            throw new IllegalArgumentException("Numero giocatori deve essere tra 2 e 10");
+    // getter e setter del numero di giocatori (compreso ovviamente tra 2 e 10)
+    public int getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        if (numberOfPlayers < 2 || numberOfPlayers > 10) {
+            throw new IllegalArgumentException("Number of players must be between 2 and 10");
         }
-        this.gamerNumber = gamerNumber;
+        this.numberOfPlayers = numberOfPlayers;
     }
 
-    public int getDurationAverageMinutes() { return durationAverageMinutes; }
-    public void setDurationAverageMinutes(int durationAverageMinutes) { this.durationAverageMinutes = durationAverageMinutes; }
+    // getter e setter della media della durata in minuti di una partita
+    public int getAverageDurationMinutes() {
+        return averageDurationMinutes;
+    }
+    public void setAverageDurationMinutes(int averageDurationMinutes) {
+        this.averageDurationMinutes = averageDurationMinutes;
+    }
 
     @Override
     public String toString() {
         return "BoardGame{" +
-                super.toString() +
-                ", gamerNumber=" + gamerNumber +
-                ", durataMediaMinuti=" + durationAverageMinutes +
+                "id='" + getId() + '\'' +
+                ", releaseYear=" + getReleaseYear() +
+                ", price=" + getPrice() +
+                ", numberOfPlayers=" + numberOfPlayers +
+                ", averageDurationMinutes=" + averageDurationMinutes +
                 '}';
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) return false;
+        if (getClass() != o.getClass()) return false;
+        BoardGames that = (BoardGames) o;
+        return numberOfPlayers == that.numberOfPlayers &&
+                averageDurationMinutes == that.averageDurationMinutes;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numberOfPlayers, averageDurationMinutes);
+    }
+}
